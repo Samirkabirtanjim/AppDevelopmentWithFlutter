@@ -8,7 +8,6 @@ Implement the move() method to print "The car is moving at $_speed km/h".
 c)Use encapsulation to prevent direct access to _speed.
 d)In the main function, create an object of Car, set the speed, and call the move() method.*/
 
-```dart
 abstract class Vehicle {
 
   int _speed = 0;
@@ -42,4 +41,3 @@ void main() {
   myCar.setSpeed(60);
   myCar.move();
 }
-```
