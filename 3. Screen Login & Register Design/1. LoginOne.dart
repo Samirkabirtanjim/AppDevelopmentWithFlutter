@@ -26,7 +26,7 @@ class _LoginOneState extends State<LoginOne> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
 
-                // 🔹 Header
+                // Header
                 Row(
                   children: [
                     Image.asset('assets/images/logo.png', height: 30),
@@ -53,7 +53,7 @@ class _LoginOneState extends State<LoginOne> {
                 const Text("Enter your email and password to log in"),
                 const SizedBox(height: 20),
 
-                // 🔹 Email
+                // Email
                 TextField(
                   keyboardType: TextInputType.emailAddress,
                   decoration: InputDecoration(
@@ -67,7 +67,7 @@ class _LoginOneState extends State<LoginOne> {
 
                 const SizedBox(height: 8),
 
-                // 🔥 Password with toggle
+                // Password with toggle
                 TextField(
                   obscureText: _isPasswordHidden,
                   decoration: InputDecoration(
