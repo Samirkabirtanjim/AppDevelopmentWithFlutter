@@ -1,8 +1,15 @@
 import 'package:authentication/authentication_one/signup_one.dart';
 import 'package:flutter/material.dart';
 
-class LoginOne extends StatelessWidget {
+class LoginOne extends StatefulWidget {
   const LoginOne({super.key});
+
+  @override
+  State<LoginOne> createState() => _LoginOneState();
+}
+
+class _LoginOneState extends State<LoginOne> {
+  bool _isPasswordHidden = true;
 
   @override
   Widget build(BuildContext context) {
@@ -18,6 +25,8 @@ class LoginOne extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+
+                // 🔹 Header
                 Row(
                   children: [
                     Image.asset('assets/images/logo.png', height: 30),
@@ -29,8 +38,9 @@ class LoginOne extends StatelessWidget {
                   ],
                 ),
 
-                const SizedBox(height: 80,),
-                Text(
+                const SizedBox(height: 80),
+
+                const Text(
                   "Sign in to Your\nAccount",
                   style: TextStyle(
                     fontSize: 40,
@@ -38,15 +48,17 @@ class LoginOne extends StatelessWidget {
                     height: 1.0,
                   ),
                 ),
+
                 const SizedBox(height: 20),
-                Text("Enter your email and password to log in"),
+                const Text("Enter your email and password to log in"),
                 const SizedBox(height: 20),
 
+                // 🔹 Email
                 TextField(
+                  keyboardType: TextInputType.emailAddress,
                   decoration: InputDecoration(
+                    prefixIcon: const Icon(Icons.email),
                     hintText: "Email",
-                    filled: true,
-                    fillColor: Colors.white,
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10),
                     ),
@@ -55,12 +67,24 @@ class LoginOne extends StatelessWidget {
 
                 const SizedBox(height: 8),
 
+                // 🔥 Password with toggle
                 TextField(
-                  obscureText: true,
+                  obscureText: _isPasswordHidden,
                   decoration: InputDecoration(
                     hintText: "Password",
-                    filled: true,
-                    fillColor: Colors.white,
+                    prefixIcon: const Icon(Icons.lock),
+                    suffixIcon: IconButton(
+                      icon: Icon(
+                        _isPasswordHidden
+                            ? Icons.visibility_off
+                            : Icons.visibility,
+                      ),
+                      onPressed: () {
+                        setState(() {
+                          _isPasswordHidden = !_isPasswordHidden;
+                        });
+                      },
+                    ),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10),
                     ),
@@ -69,7 +93,7 @@ class LoginOne extends StatelessWidget {
 
                 const SizedBox(height: 10),
 
-                Align(
+                const Align(
                   alignment: Alignment.centerRight,
                   child: Text(
                     "Forgot Password?",
@@ -95,82 +119,71 @@ class LoginOne extends StatelessWidget {
                     ),
                     child: const Text(
                       "Log In",
-                      style: TextStyle(fontSize: 16, color: Colors.white),
+                      style: TextStyle(color: Colors.white),
                     ),
                   ),
                 ),
-                SizedBox(height: 20),
+
+                const SizedBox(height: 20),
+
                 Row(
                   children: [
-                    Expanded(
-                      child: Divider(thickness: 1, color: Colors.grey[400]),
-                    ),
+                    Expanded(child: Divider()),
                     const Padding(
                       padding: EdgeInsets.symmetric(horizontal: 10),
-                      child: Text(
-                        "or",
-                        style: TextStyle(color: Colors.grey, fontSize: 20),
-                      ),
+                      child: Text("or"),
                     ),
-                    Expanded(
-                      child: Divider(thickness: 1, color: Colors.grey[400]),
-                    ),
+                    Expanded(child: Divider()),
                   ],
                 ),
+
                 const SizedBox(height: 10),
+
+                // Google button
                 SizedBox(
                   width: double.infinity,
                   child: ElevatedButton(
                     onPressed: () {},
                     style: ElevatedButton.styleFrom(
-                      padding: const EdgeInsets.symmetric(vertical: 16),
                       backgroundColor: Colors.white,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
-                      ),
                     ),
                     child: Row(
-                      mainAxisSize: MainAxisSize.min,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Image.asset('assets/images/google.png', height: 20),
-                        SizedBox(width: 5),
-                        Text(
-                          "Continue with Google",
-                          style: TextStyle(color: Colors.black),
-                        ),
+                        const SizedBox(width: 5),
+                        const Text("Continue with Google",
+                            style: TextStyle(color: Colors.black)),
                       ],
                     ),
                   ),
                 ),
 
                 const SizedBox(height: 8),
+
+                // Facebook button
                 SizedBox(
                   width: double.infinity,
                   child: ElevatedButton(
                     onPressed: () {},
                     style: ElevatedButton.styleFrom(
-                      padding: const EdgeInsets.symmetric(vertical: 16),
                       backgroundColor: Colors.white,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
-                      ),
                     ),
                     child: Row(
-                      mainAxisSize: MainAxisSize.min,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Image.asset('assets/images/facebook.png', height: 20),
                         const SizedBox(width: 5),
-                        const Text(
-                          "Continue with Facebook",
-                          style: TextStyle(color: Colors.black),
-                        ),
+                        const Text("Continue with Facebook",
+                            style: TextStyle(color: Colors.black)),
                       ],
                     ),
                   ),
                 ),
 
+                const SizedBox(height: 20),
+
+                // Bottom row
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -184,13 +197,7 @@ class LoginOne extends StatelessWidget {
                           ),
                         );
                       },
-                      child: const Text(
-                        "Sign Up",
-                        style: TextStyle(
-                          color: Colors.blue,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
+                      child: const Text("Sign Up"),
                     ),
                   ],
                 ),
