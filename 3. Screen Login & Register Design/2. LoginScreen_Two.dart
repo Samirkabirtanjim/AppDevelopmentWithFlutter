@@ -8,6 +8,8 @@ class LoginpartTwo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final _formKey = GlobalKey<FormState>();
+    TextEditingController phoneController = TextEditingController();
+    TextEditingController passwordController = TextEditingController();
 
     return Scaffold(
       appBar: AppBar(
@@ -41,6 +43,7 @@ class LoginpartTwo extends StatelessWidget {
               child: Column(
                 children: [
                   TextFormField(
+                    controller: phoneController,
                     keyboardType: TextInputType.phone,
                     decoration: InputDecoration(
                       hintText: "Phone Number",
@@ -61,6 +64,7 @@ class LoginpartTwo extends StatelessWidget {
                   const SizedBox(height: 20),
 
                   TextFormField(
+                    controller: passwordController,
                     obscureText: true,
                     decoration: InputDecoration(
                       hintText: "Password",
@@ -98,7 +102,7 @@ class LoginpartTwo extends StatelessWidget {
                           Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => Logintohome(),
+                              builder: (context) => Logintohome(phone: phoneController.text, password: '',),
                             ),
                           );
                         }else{
