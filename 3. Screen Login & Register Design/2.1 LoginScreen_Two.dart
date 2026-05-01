@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 class Logintohome extends StatelessWidget {
-  const Logintohome({super.key});
+  final String phone;
+  final String ? password;
+  const Logintohome({super.key, required this.phone, required this.password});
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +14,7 @@ class Logintohome extends StatelessWidget {
         title: const Text("Binge", style: TextStyle(color: Colors.red)),
       ),
       body: Center(
-        child: Text("Loading........", style: TextStyle(fontSize: 30)),
+        child: Text("Welcome $phone", style: TextStyle(fontSize: 25)),
       ),
     );
   }
