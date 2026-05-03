@@ -1,3 +1,21 @@
+import 'package:flutter/material.dart';
+
+import 'container.dart';
+
+class Maincontainer extends StatelessWidget {
+  const Maincontainer({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Containers(),
+    );
+  }
+}
+
+
+
 
 import 'package:flutter/material.dart';
 
