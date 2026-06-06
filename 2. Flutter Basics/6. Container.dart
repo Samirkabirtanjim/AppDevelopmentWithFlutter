@@ -21,6 +21,7 @@ class MyApp extends StatelessWidget{
            actions: [IconButton(onPressed: () {}, icon: Icon(Icons.logout, color: Colors.white,))],
          ),
         body: Center(
+          //same for column and row
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
