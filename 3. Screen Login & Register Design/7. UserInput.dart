@@ -8,7 +8,7 @@ class Gettinginput extends StatefulWidget {
 }
 
 class _GettinginputState extends State<Gettinginput> {
-  TextEditingController myController = TextEditingController();
+  final TextEditingController myController = TextEditingController();
 
   String user = "";
   void getUser() {
@@ -17,12 +17,6 @@ class _GettinginputState extends State<Gettinginput> {
     });
   }
 
-  String showText = "";
-  void show() {
-    setState(() {
-      showText = "Hello, " + user;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
